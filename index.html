@@ -8,7 +8,6 @@
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; background: #f0f2f5; color: #1a1d27; font-size: 15px; }
 
-/* ── Header ── */
 .header { background: #182035; display: flex; align-items: stretch; }
 .header-logo { background: #fff; padding: 16px 28px; display: flex; align-items: center; }
 .header-logo img { height: 48px; width: auto; }
@@ -20,11 +19,15 @@ body { font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; background: #f
 .header-meta span { color: #8892a4; font-size: 11px; }
 .header-meta strong { color: #E8500A; font-size: 13px; }
 
-/* ── Layout ── */
 .container { max-width: 1040px; margin: 0 auto; padding: 36px 20px 80px; }
 
-/* ── Status Bar ── */
-.status-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 32px; }
+/* Target banner */
+.target-banner { background: #182035; border-left: 5px solid #E8500A; border-radius: 8px; padding: 14px 20px; margin-bottom: 24px; display: flex; align-items: center; gap: 16px; }
+.target-banner .tb-label { font-size: 10px; font-weight: 700; color: #E8500A; text-transform: uppercase; letter-spacing: 2px; white-space: nowrap; }
+.target-banner .tb-text { font-size: 13px; color: #fff; line-height: 1.5; }
+.target-banner .tb-text strong { color: #E8500A; }
+
+.status-bar { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 28px; }
 .stat-card { background: #fff; border-radius: 10px; padding: 20px 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.07); border-top: 4px solid #ddd; }
 .stat-card.done { border-color: #1a8a3c; }
 .stat-card.inprog { border-color: #E8500A; }
@@ -36,36 +39,35 @@ body { font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; background: #f
 .stat-label { font-size: 13px; color: #666; margin-top: 4px; }
 .stat-sub { font-size: 11px; color: #aaa; margin-top: 6px; }
 
-/* ── Section ── */
 .section { background: #fff; border-radius: 10px; margin-bottom: 24px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.07); }
 .section-header { background: #182035; padding: 14px 24px; display: flex; align-items: center; gap: 10px; }
 .section-header .num { background: #E8500A; color: #fff; border-radius: 50%; width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; flex-shrink: 0; }
 .section-header h2 { color: #fff; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; }
 .section-body { padding: 24px; }
 
-/* ── Feature List ── */
 .feat-group { margin-bottom: 20px; }
 .feat-group-title { font-size: 11px; font-weight: 700; color: #E8500A; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 10px; }
 .feat-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px; }
 .feat-item { display: flex; align-items: flex-start; gap: 8px; padding: 8px 10px; border-radius: 6px; font-size: 13px; line-height: 1.5; }
 .feat-item.done { background: #f0faf4; }
 .feat-item.inprog { background: #fff8f3; }
+.feat-item.miss { background: #f5f0ff; }
 .feat-item.plan { background: #f5f6fa; }
 .feat-icon { width: 16px; height: 16px; border-radius: 50%; flex-shrink: 0; margin-top: 1px; display: flex; align-items: center; justify-content: center; font-size: 9px; font-weight: 700; color: #fff; }
 .feat-icon.done { background: #1a8a3c; }
 .feat-icon.inprog { background: #E8500A; }
+.feat-icon.miss { background: #7c3aed; }
 .feat-icon.plan { background: #aab0c0; }
 .feat-text { color: #333; }
 .feat-text small { display: block; color: #999; font-size: 11px; }
+.feat-text .tag-mas { display: inline-block; font-size: 9px; font-weight: 700; background: #fff0e6; color: #E8500A; padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
 
-/* ── Comparison Table ── */
+/* Comparison */
 .cmp-table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .cmp-table th { padding: 10px 14px; text-align: center; font-weight: 600; font-size: 12px; }
 .cmp-table th.feature-col { text-align: left; background: #f5f6fa; color: #444; }
 .cmp-table th.ours { background: #182035; color: #fff; }
-.cmp-table th.grob { background: #3a3f52; color: #ccc; }
-.cmp-table th.dmg { background: #3a3f52; color: #ccc; }
-.cmp-table th.makino { background: #3a3f52; color: #ccc; }
+.cmp-table th.competitor { background: #3a3f52; color: #ccc; }
 .cmp-table td { padding: 9px 14px; border-bottom: 1px solid #eef0f4; text-align: center; }
 .cmp-table td.feature-col { text-align: left; font-size: 13px; color: #333; }
 .cmp-table td.feature-col small { display: block; color: #999; font-size: 11px; }
@@ -77,9 +79,10 @@ body { font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; background: #f
 .c-road { color: #6c7a99; font-size: 11px; font-weight: 600; }
 .cmp-note { font-size: 11px; color: #aaa; margin-top: 12px; text-align: right; }
 .advantage-tag { display: inline-block; background: #E8500A; color: #fff; font-size: 10px; font-weight: 700; padding: 1px 6px; border-radius: 3px; margin-left: 6px; vertical-align: middle; }
+.mas-tag { display: inline-block; background: #6c7a99; color: #fff; font-size: 9px; font-weight: 700; padding: 1px 5px; border-radius: 3px; margin-left: 4px; vertical-align: middle; }
 
-/* ── Roadmap ── */
-.roadmap-row { display: flex; align-items: stretch; gap: 0; margin-bottom: 12px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
+/* Roadmap */
+.roadmap-row { display: flex; align-items: stretch; gap: 0; margin-bottom: 10px; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 3px rgba(0,0,0,0.06); }
 .rm-phase { background: #182035; color: #fff; padding: 14px 18px; min-width: 130px; display: flex; flex-direction: column; justify-content: center; }
 .rm-phase .p-name { font-size: 13px; font-weight: 700; }
 .rm-phase .p-period { font-size: 11px; color: #8892a4; margin-top: 3px; }
@@ -92,50 +95,44 @@ body { font-family: "Segoe UI", "Microsoft JhengHei", sans-serif; background: #f
 .rm-items { display: flex; flex-wrap: wrap; gap: 5px; }
 .rm-item { font-size: 11px; background: #f0f2f7; color: #444; padding: 3px 9px; border-radius: 20px; }
 .rm-item.key { background: #fff0e6; color: #E8500A; font-weight: 600; }
+.rm-item.mas { background: #ede9fe; color: #7c3aed; font-weight: 600; }
 .rm-milestone { font-size: 12px; color: #1a8a3c; font-weight: 600; margin-top: 8px; }
 
-/* ── Timeline Bar ── */
-.timeline-header { display: flex; justify-content: space-between; font-size: 11px; color: #aaa; margin-bottom: 8px; padding: 0 130px 0 130px; }
-.tl-bar-wrap { margin: 0 0 24px; position: relative; }
+/* Timeline */
 .tl-bar-row { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
 .tl-bar-label { min-width: 120px; font-size: 11px; color: #666; text-align: right; }
-.tl-bar-track { flex: 1; height: 24px; background: #eef0f7; border-radius: 4px; overflow: hidden; position: relative; }
+.tl-bar-track { flex: 1; height: 24px; background: #eef0f7; border-radius: 4px; overflow: hidden; }
 .tl-bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 10px; font-size: 10px; font-weight: 600; color: #fff; white-space: nowrap; }
 .tl-done { background: #1a8a3c; }
 .tl-active { background: #E8500A; }
-.tl-plan-a { background: #6c7a99; }
-.tl-plan-b { background: #9aa3bb; }
-.tl-plan-c { background: #b0b9cc; }
-.tl-plan-d { background: #c8cedb; color: #666; }
+.tl-p2 { background: #7c3aed; }
+.tl-p3 { background: #6c7a99; }
+.tl-p4 { background: #9aa3bb; }
+.tl-p5 { background: #c8cedb; color: #666; }
 
-/* ── Toggle / Details ── */
-.toggle-section { border-radius: 8px; overflow: hidden; margin-bottom: 12px; border: 1px solid #e0e3ea; }
-.toggle-section summary { padding: 14px 20px; background: #f5f6fa; cursor: pointer; font-size: 13px; font-weight: 600; color: #444; display: flex; align-items: center; gap: 8px; list-style: none; user-select: none; }
+/* Toggle */
+.toggle-section { border-radius: 8px; overflow: hidden; margin-bottom: 10px; border: 1px solid #e0e3ea; }
+.toggle-section summary { padding: 13px 20px; background: #f5f6fa; cursor: pointer; font-size: 13px; font-weight: 600; color: #444; display: flex; align-items: center; gap: 8px; list-style: none; user-select: none; }
 .toggle-section summary::-webkit-details-marker { display: none; }
 .toggle-section summary::before { content: "▶"; font-size: 10px; color: #E8500A; transition: transform 0.2s; }
 .toggle-section[open] summary::before { transform: rotate(90deg); }
 .toggle-section summary:hover { background: #eceef5; }
 .toggle-body { padding: 20px 24px; background: #fff; border-top: 1px solid #e0e3ea; }
 
-/* ── Rule / Install tables ── */
 .rule-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.rule-table th { background: #f0f2f7; color: #555; padding: 7px 12px; text-align: left; font-weight: 600; border-bottom: 2px solid #e0e3ea; }
 .rule-table td { padding: 8px 12px; border-bottom: 1px solid #eef0f4; vertical-align: top; line-height: 1.55; }
 .rule-table td:first-child { font-weight: 600; color: #c0392b; white-space: nowrap; width: 180px; }
 pre.code { background: #1a1d27; color: #a8d8a8; font-size: 11px; padding: 10px 14px; border-radius: 6px; font-family: Consolas, monospace; overflow-x: auto; margin: 6px 0; line-height: 1.7; }
 pre.code .c { color: #6a9fb5; }
-
 .tech-table { width: 100%; border-collapse: collapse; font-size: 12px; }
 .tech-table th { background: #E8500A; color: #fff; padding: 8px 12px; text-align: left; }
 .tech-table td { padding: 8px 12px; border-bottom: 1px solid #eef0f4; }
 .tech-table tr:nth-child(even) td { background: #fafbfc; }
-
 .install-step { display: flex; gap: 14px; margin-bottom: 16px; }
 .install-num { background: #182035; color: #E8500A; font-weight: 700; font-size: 13px; border-radius: 50%; width: 30px; height: 30px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .install-body h4 { font-size: 13px; font-weight: 600; margin-bottom: 3px; }
 .install-body p { font-size: 12px; color: #555; line-height: 1.5; }
 
-/* ── Footer ── */
 .footer { text-align: center; color: #aaa; font-size: 11px; margin-top: 40px; }
 .footer strong { color: #E8500A; }
 </style>
@@ -153,20 +150,30 @@ pre.code .c { color: #6a9fb5; }
   </div>
   <div class="header-meta">
     <span>報告日期</span>
-    <strong>2026-05-12</strong>
+    <strong>2026-05-13</strong>
     <span>版本</span>
-    <strong>v0.2.0</strong>
+    <strong>v0.3.0</strong>
   </div>
 </div>
 
 <div class="container">
+
+  <!-- Target Banner -->
+  <div class="target-banner">
+    <div class="tb-label">最終目標對標</div>
+    <div class="tb-text">
+      <strong>Makino MAS-μCX</strong>（加工機支援ソフトウェア）&nbsp;—&nbsp;
+      托盤生命週期管理 + 2步驟啟動加工 + 即時排程調整 + 作業者任務指引，
+      針對廠內 <strong>TNC640 + FANUC 手臂 / 台達料盤系統</strong>，不受廠牌鎖定。
+    </div>
+  </div>
 
   <!-- Status Bar -->
   <div class="status-bar">
     <div class="stat-card done">
       <div class="stat-num">18</div>
       <div class="stat-label">項功能已完成</div>
-      <div class="stat-sub">Phase 0 + Phase 1-A/B 全部完成<br>端對端驗證通過（截圖存證）</div>
+      <div class="stat-sub">Phase 0 + Phase 1-A/B<br>端對端驗證通過（截圖確認）</div>
     </div>
     <div class="stat-card inprog">
       <div class="stat-num">4</div>
@@ -175,47 +182,59 @@ pre.code .c { color: #6a9fb5; }
     </div>
     <div class="stat-card plan">
       <div class="stat-num">~6</div>
-      <div class="stat-label">個月至完整上線</div>
-      <div class="stat-sub">含機器人整合 + MES + OEE<br>以廠內現有設備為基礎</div>
+      <div class="stat-label">個月至 MAS-μCX 同等功能</div>
+      <div class="stat-sub">托盤管理 + Cell 自動化 + MES<br>以廠內現有設備為基礎</div>
     </div>
   </div>
 
-  <!-- Section 1: Done -->
+  <!-- Section 1: Done + Not Done -->
   <div class="section">
     <div class="section-header">
       <div class="num">1</div>
-      <h2>已完成功能</h2>
+      <h2>已完成 vs 尚未完成</h2>
     </div>
     <div class="section-body">
+
       <div class="feat-group">
-        <div class="feat-group-title">系統基礎 &amp; 通訊核心（Phase 0 + 1-A）</div>
+        <div class="feat-group-title">已完成 — 系統基礎 &amp; OPC UA 通訊（Phase 0 + 1-A/B）</div>
         <div class="feat-grid">
           <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">OPC UA 即時連線（Heidenhain TNC640）<small>1 秒輪詢 + WebSocket 廣播</small></div></div>
           <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">自動斷線重連（Exponential Backoff）<small>5s → 30s 上限，無需手動介入</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">遠端控制指令<small>Cycle Start / Feed Hold / Reset / 上下料</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">安全稽核機制（SafetyService）<small>所有控制指令必經稽核 + AuditLog</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">MachineAdapter 抽象層<small>切換廠牌只改設定，程式碼不動</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">OPC UA 模擬器（Simulator）<small>完整模擬 TNC640，無需真機即可開發</small></div></div>
+          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">遠端控制（Cycle Start / Feed Hold / Reset）<small>SafetyService 稽核 + AuditLog</small></div></div>
+          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">多台機台即時監控儀表板<small>WebSocket 指示燈，門鎖/夾具/機器人狀態</small></div></div>
+          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">MachineAdapter 抽象層<small>切換廠牌只改設定，Siemens/FANUC stub 預留</small></div></div>
+          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">OPC UA Simulator（完整模擬 TNC640）<small>不需真機即可開發與測試</small></div></div>
+          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">MES 工單 + 排程頁面骨架<small>資料結構完整，等 Phase 3 功能填充</small></div></div>
+          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">Quick Jet 品牌 UI + GitHub Pages 報告<small>https://booke3c.github.io/qj-cnc-scada/</small></div></div>
         </div>
       </div>
+
       <div class="feat-group">
-        <div class="feat-group-title">前端介面（Phase 1-B）</div>
+        <div class="feat-group-title">進行中 — Phase 1-C（TNC640 真機連線）</div>
         <div class="feat-grid">
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">戰情看板（Dashboard）<small>所有機台即時狀態，WebSocket 指示燈</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">機台詳情頁<small>主軸轉速、進給率 Bar、門鎖/夾具/機器人狀態</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">MES 工單管理頁面<small>工單列表、優先序、派工（骨架完成）</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">排程管理頁面<small>排程列表、狀態顯示（骨架完成）</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">程式傳輸頁面<small>介面骨架完成，連線等待實作</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">品牌 UI &amp; 部署就緒<small>Quick Jet 品牌設計，IPC 單機可跑</small></div></div>
+          <div class="feat-item inprog"><div class="feat-icon inprog">▶</div><div class="feat-text">TNC640 Option 83 啟用 + UAExpert 節點確認</div></div>
+          <div class="feat-item inprog"><div class="feat-icon inprog">▶</div><div class="feat-text">OPC UA FileSystem NC 程式傳輸<small>Upload / Download / SelectProgramByNodeId</small></div></div>
+          <div class="feat-item inprog"><div class="feat-icon inprog">▶</div><div class="feat-text">ManufacturerExtensions PLC 變數讀取<small>CfgOpcUaPlcVar 設定</small></div></div>
+          <div class="feat-item inprog"><div class="feat-icon inprog">▶</div><div class="feat-text">X.509 憑證設定（正式安全連線）</div></div>
         </div>
       </div>
+
       <div class="feat-group" style="margin-bottom:0">
-        <div class="feat-group-title">驗證里程碑</div>
+        <div class="feat-group-title">尚未完成 — MAS-μCX 核心缺口（Phase 2–3）</div>
         <div class="feat-grid">
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">端對端全鏈路驗證完成<small>Cycle Start → RUNNING → COMPLETED，截圖存證</small></div></div>
-          <div class="feat-item done"><div class="feat-icon done">✓</div><div class="feat-text">SQLite 資料庫 + 完整 schema<small>Machine / MesOrder / JobSchedule / AuditLog</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">托盤（Pallet）生命週期管理<span class="tag-mas">MAS-μCX 核心</span><small>IDLE→LOADING→MACHINING→DONE→OFFLINE</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">2步驟快速啟動加工<span class="tag-mas">MAS-μCX 核心</span><small>選托盤→指派程式→設順序→自動執行</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">加工中即時修改排程（不停機）<span class="tag-mas">MAS-μCX</span><small>拖曳調整加工順序，不中斷正在執行的工件</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">預估完成時間（ETA）顯示<span class="tag-mas">MAS-μCX</span><small>每個托盤的預估完工時刻</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">作業者任務指引<span class="tag-mas">MAS-μCX</span><small>現在應做什麼：上料/確認/換刀/待機</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">機外托盤狀態追蹤<span class="tag-mas">MAS-μCX</span><small>卸下機台的托盤仍可在系統中追蹤管理</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">FANUC 手臂 Cell 自動化<small>I/O 握手，透過 TNC640 PLC 中介</small></div></div>
+          <div class="feat-item miss"><div class="feat-icon miss">○</div><div class="feat-text">台達 AS PLC 料盤系統整合<small>OPC UA 直連，DeltaOpcUaAdapter</small></div></div>
+          <div class="feat-item plan"><div class="feat-icon plan">–</div><div class="feat-text">OEE 稼動率報表（Phase 4）<small>Availability × Performance × Quality</small></div></div>
+          <div class="feat-item plan"><div class="feat-icon plan">–</div><div class="feat-text">平板 / 手機響應式 UI（Phase 2-D）<span class="tag-mas">MAS-μCX</span></div></div>
         </div>
       </div>
+
     </div>
   </div>
 
@@ -223,17 +242,17 @@ pre.code .c { color: #6a9fb5; }
   <div class="section">
     <div class="section-header">
       <div class="num">2</div>
-      <h2>與 GROB / DMG / MAKINO 系統功能對比</h2>
+      <h2>與 GROB / DMG / Makino MAS-μCX 功能對比</h2>
     </div>
     <div class="section-body">
       <table class="cmp-table">
         <thead>
           <tr>
-            <th class="feature-col" style="width:240px;">功能</th>
+            <th class="feature-col" style="width:230px;">功能</th>
             <th class="ours">Quick Jet SCADA<br><small style="font-weight:400;color:#aaa;">自主研發</small></th>
-            <th class="grob">GROB-NET4Industry<br><small style="font-weight:400;color:#888;">GROB 官方</small></th>
-            <th class="dmg">DMG CELOS<br><small style="font-weight:400;color:#888;">DMG MORI</small></th>
-            <th class="makino">MAKINO ProNET<br><small style="font-weight:400;color:#888;">MAKINO</small></th>
+            <th class="competitor">Makino MAS-μCX<br><small style="font-weight:400;color:#888;">對標目標</small></th>
+            <th class="competitor">GROB-NET4Industry<br><small style="font-weight:400;color:#888;">GROB 官方</small></th>
+            <th class="competitor">DMG CELOS<br><small style="font-weight:400;color:#888;">DMG MORI</small></th>
           </tr>
         </thead>
         <tbody>
@@ -245,37 +264,58 @@ pre.code .c { color: #6a9fb5; }
             <td><span class="c-yes">●</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>遠端控制指令</b><small>Cycle Start / Feed Hold</small></td>
+            <td class="feature-col"><b>遠端控制指令</b></td>
+            <td><span class="c-yes">●</span></td>
             <td><span class="c-yes">●</span></td>
             <td><span class="c-yes">●</span></td>
             <td><span class="c-partial">◐</span></td>
-            <td><span class="c-partial">◐</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>多廠牌 CNC 支援</b><small>TNC640 + Siemens + FANUC</small></td>
-            <td><span class="c-road">藍圖中</span></td>
-            <td><span class="c-no">✕</span><small style="font-size:10px;color:#bbb;"> 僅 GROB 機台</small></td>
-            <td><span class="c-no">✕</span><small style="font-size:10px;color:#bbb;"> 僅 DMG 機台</small></td>
-            <td><span class="c-no">✕</span><small style="font-size:10px;color:#bbb;"> 僅 MAKINO 機台</small></td>
+            <td class="feature-col"><b>NC 程式集中管理</b></td>
+            <td><span class="c-road">1-C 進行中</span></td>
+            <td><span class="c-yes">●</span></td>
+            <td><span class="c-yes">●</span></td>
+            <td><span class="c-yes">●</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>機器人 Cell 自動化</b><small>FANUC 手臂 / 台達料盤</small></td>
+            <td class="feature-col"><b>托盤（Pallet）管理</b><small>生命週期追蹤</small></td>
             <td><span class="c-road">Phase 2</span></td>
-            <td><span class="c-yes">●</span><small style="font-size:10px;color:#bbb;"> 高額選配</small></td>
-            <td><span class="c-partial">◐</span><small style="font-size:10px;color:#bbb;"> 需整合</small></td>
-            <td><span class="c-partial">◐</span><small style="font-size:10px;color:#bbb;"> 需整合</small></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#888;"> 核心功能</small></td>
+            <td><span class="c-yes">●</span></td>
+            <td><span class="c-partial">◐</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>NC 程式傳輸管理</b><small>上傳 / 下載 / 版本</small></td>
-            <td><span class="c-road">Phase 1-C</span></td>
-            <td><span class="c-yes">●</span></td>
-            <td><span class="c-yes">●</span></td>
-            <td><span class="c-yes">●</span></td>
+            <td class="feature-col"><b>2步驟快速啟動加工</b></td>
+            <td><span class="c-road">Phase 2</span></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#888;"> 特色功能</small></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>MES 工單整合</b><small>派工 / 排程 / 追蹤</small></td>
+            <td class="feature-col"><b>加工中即時改排程</b><small>不停機</small></td>
             <td><span class="c-road">Phase 3</span></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#888;"> 特色功能</small></td>
+            <td><span class="c-partial">◐</span></td>
+            <td><span class="c-partial">◐</span></td>
+          </tr>
+          <tr>
+            <td class="feature-col"><b>預估完成時間（ETA）</b></td>
+            <td><span class="c-road">Phase 2-3</span></td>
             <td><span class="c-yes">●</span></td>
+            <td><span class="c-yes">●</span></td>
+            <td><span class="c-yes">●</span></td>
+          </tr>
+          <tr>
+            <td class="feature-col"><b>作業者任務指引</b></td>
+            <td><span class="c-road">Phase 2</span></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#888;"> 特色功能</small></td>
+            <td><span class="c-partial">◐</span></td>
+            <td><span class="c-partial">◐</span></td>
+          </tr>
+          <tr>
+            <td class="feature-col"><b>機器人 Cell 自動化</b><small>FANUC + 台達料盤</small></td>
+            <td><span class="c-road">Phase 2</span></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#888;"> 高額選配</small></td>
             <td><span class="c-yes">●</span></td>
             <td><span class="c-partial">◐</span></td>
           </tr>
@@ -287,43 +327,43 @@ pre.code .c { color: #6a9fb5; }
             <td><span class="c-yes">●</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>刀具管理</b></td>
-            <td><span class="c-no">✕</span></td>
-            <td><span class="c-yes">●</span></td>
-            <td><span class="c-yes">●</span></td>
-            <td><span class="c-yes">●</span></td>
-          </tr>
-          <tr>
-            <td class="feature-col"><b>客製化彈性</b><span class="advantage-tag">優勢</span></td>
-            <td><span class="c-yes">●</span><small style="font-size:10px;color:#1a8a3c;"> 完全可控</small></td>
-            <td><span class="c-no">✕</span><small style="font-size:10px;color:#bbb;"> 固定功能</small></td>
-            <td><span class="c-no">✕</span></td>
-            <td><span class="c-no">✕</span></td>
-          </tr>
-          <tr>
-            <td class="feature-col"><b>資料本地化</b><span class="advantage-tag">優勢</span><small>資料在自己手上</small></td>
-            <td><span class="c-yes">●</span><small style="font-size:10px;color:#1a8a3c;"> IPC 本地</small></td>
-            <td><span class="c-partial">◐</span><small style="font-size:10px;color:#bbb;"> 部分雲端</small></td>
-            <td><span class="c-partial">◐</span><small style="font-size:10px;color:#bbb;"> 部分雲端</small></td>
+            <td class="feature-col"><b>平板 / 手機支援</b></td>
+            <td><span class="c-road">Phase 2</span></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#888;"> 特色功能</small></td>
+            <td><span class="c-partial">◐</span></td>
             <td><span class="c-partial">◐</span></td>
           </tr>
           <tr>
-            <td class="feature-col"><b>跨廠牌機器人整合</b><span class="advantage-tag">優勢</span><small>FANUC / 台達 / 其他</small></td>
-            <td><span class="c-road">Phase 2</span><small style="font-size:10px;color:#6c7a99;"> 廠內已驗證</small></td>
+            <td class="feature-col"><b>多廠牌 CNC 支援</b><span class="advantage-tag">優勢</span></td>
+            <td><span class="c-road">Phase 5</span><small style="font-size:10px;color:#6c7a99;"> TNC640→Siemens→FANUC</small></td>
+            <td><span class="c-no">✕</span><small style="font-size:10px;color:#bbb;"> 僅 Makino</small></td>
+            <td><span class="c-no">✕</span></td>
+            <td><span class="c-no">✕</span></td>
+          </tr>
+          <tr>
+            <td class="feature-col"><b>跨廠牌機器人整合</b><span class="advantage-tag">優勢</span><small>FANUC 手臂 + 台達料盤</small></td>
+            <td><span class="c-road">Phase 2</span><small style="font-size:10px;color:#6c7a99;"> 廠內已驗證兩套</small></td>
             <td><span class="c-no">✕</span></td>
             <td><span class="c-no">✕</span></td>
             <td><span class="c-no">✕</span></td>
           </tr>
           <tr>
+            <td class="feature-col"><b>資料本地化</b><span class="advantage-tag">優勢</span></td>
+            <td><span class="c-yes">●</span><small style="font-size:10px;color:#1a8a3c;"> IPC 本地，資料在自己手上</small></td>
+            <td><span class="c-partial">◐</span></td>
+            <td><span class="c-partial">◐</span></td>
+            <td><span class="c-partial">◐</span></td>
+          </tr>
+          <tr>
             <td class="feature-col"><b>導入成本</b><span class="advantage-tag">優勢</span></td>
-            <td><span style="color:#1a8a3c;font-weight:700;">開發成本</span><small style="font-size:10px;color:#1a8a3c;"> 無授權費、可維護</small></td>
+            <td><span style="color:#1a8a3c;font-weight:700;">開發成本</span><small style="font-size:10px;color:#1a8a3c;"> 無授權費、完全可維護</small></td>
+            <td><span style="color:#888;">詢價制</span><small style="font-size:10px;color:#bbb;"> 高額授權費</small></td>
             <td><span style="color:#888;">€50K–200K+</span></td>
             <td><span style="color:#888;">€30K–150K+</span></td>
-            <td><span style="color:#888;">€30K–100K+</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="cmp-note">● 支援 &nbsp;&nbsp; ◐ 部分支援 &nbsp;&nbsp; ✕ 不支援 &nbsp;&nbsp; 競品資料來源：公開型錄與詢價經驗</p>
+      <p class="cmp-note">● 支援 &nbsp;&nbsp; ◐ 部分支援 &nbsp;&nbsp; ✕ 不支援 &nbsp;&nbsp; MAS-μCX 資料來源：makino.co.jp 官方產品頁（2026-05-13）</p>
     </div>
   </div>
 
@@ -336,174 +376,108 @@ pre.code .c { color: #6a9fb5; }
     <div class="section-body">
 
       <div class="roadmap-row">
-        <div class="rm-phase">
-          <div class="p-name">Phase 0–1B</div>
-          <div class="p-period">已完成</div>
-          <span class="rm-tag done">完成</span>
-        </div>
+        <div class="rm-phase"><div class="p-name">Phase 0–1B</div><div class="p-period">已完成</div><span class="rm-tag done">完成</span></div>
         <div class="rm-content">
           <h4>基礎建設 + OPC UA 核心 + 即時前端</h4>
-          <div class="rm-items">
-            <span class="rm-item key">Simulator 端對端驗證</span>
-            <span class="rm-item">WebSocket 即時推送</span>
-            <span class="rm-item">SafetyService + AuditLog</span>
-            <span class="rm-item">Quick Jet 品牌 UI</span>
-            <span class="rm-item">自動重連機制</span>
-          </div>
+          <div class="rm-items"><span class="rm-item key">Simulator 端對端驗證</span><span class="rm-item">WebSocket 即時推送</span><span class="rm-item">SafetyService</span><span class="rm-item">Quick Jet UI</span><span class="rm-item">自動重連</span></div>
         </div>
       </div>
 
       <div class="roadmap-row">
-        <div class="rm-phase">
-          <div class="p-name">Phase 1-C</div>
-          <div class="p-period">Week 1–3</div>
-          <span class="rm-tag active">進行中</span>
-        </div>
+        <div class="rm-phase"><div class="p-name">Phase 1-C</div><div class="p-period">Week 1–3</div><span class="rm-tag active">進行中</span></div>
         <div class="rm-content">
-          <h4>TNC640 真機連線 + 程式傳輸</h4>
-          <div class="rm-items">
-            <span class="rm-item key">Option 83 啟用 + UAExpert 確認</span>
-            <span class="rm-item key">OPC UA FileSystem 程式上傳下載</span>
-            <span class="rm-item">PLC 變數讀取（ManufacturerExtensions）</span>
-            <span class="rm-item">X.509 憑證設定</span>
-          </div>
+          <h4>TNC640 真機連線 + OPC UA 程式傳輸</h4>
+          <div class="rm-items"><span class="rm-item key">Option 83 + UAExpert</span><span class="rm-item key">FileSystem 程式上傳下載</span><span class="rm-item">PLC 變數讀取</span><span class="rm-item">X.509 憑證</span></div>
           <div class="rm-milestone">▸ 里程碑：真機狀態監控 + 程式傳輸完成</div>
         </div>
       </div>
 
       <div class="roadmap-row">
-        <div class="rm-phase">
-          <div class="p-name">Phase 2</div>
-          <div class="p-period">Week 4–9</div>
-          <span class="rm-tag plan">計畫中</span>
-        </div>
+        <div class="rm-phase"><div class="p-name">Phase 2</div><div class="p-period">Week 4–9</div><span class="rm-tag plan">計畫中</span></div>
         <div class="rm-content">
-          <h4>機器人 Cell 自動化（FANUC 手臂 + 台達料盤）</h4>
+          <h4>托盤管理 + Cell 自動化（MAS-μCX 核心對標）</h4>
           <div class="rm-items">
-            <span class="rm-item key">CellController 協調狀態機</span>
-            <span class="rm-item key">FANUC I/O 握手（透過 TNC PLC）</span>
-            <span class="rm-item key">台達 AS PLC OPC UA 直連</span>
-            <span class="rm-item">HandshakeStateMachine</span>
-            <span class="rm-item">安全聯鎖強化</span>
-            <span class="rm-item">現場驗證</span>
+            <span class="rm-item mas">托盤生命週期管理</span>
+            <span class="rm-item mas">2步驟快速啟動</span>
+            <span class="rm-item mas">作業者任務指引</span>
+            <span class="rm-item mas">ETA 預估時間</span>
+            <span class="rm-item key">CellController 狀態機</span>
+            <span class="rm-item key">FANUC I/O 握手</span>
+            <span class="rm-item key">台達 AS OPC UA</span>
+            <span class="rm-item">平板響應式 UI</span>
           </div>
-          <div class="rm-milestone">▸ 里程碑：自動上料 → 加工 → 卸料 無人循環</div>
+          <div class="rm-milestone">▸ 里程碑：自動上料 → 加工 → 卸料 無人循環，達到 MAS-μCX 同等基礎功能</div>
         </div>
       </div>
 
       <div class="roadmap-row">
-        <div class="rm-phase">
-          <div class="p-name">Phase 3</div>
-          <div class="p-period">Week 10–13</div>
-          <span class="rm-tag plan">計畫中</span>
-        </div>
+        <div class="rm-phase"><div class="p-name">Phase 3</div><div class="p-period">Week 10–13</div><span class="rm-tag plan">計畫中</span></div>
         <div class="rm-content">
-          <h4>MES 工單完整整合</h4>
-          <div class="rm-items">
-            <span class="rm-item key">工單派工邏輯</span>
-            <span class="rm-item">排程甘特圖</span>
-            <span class="rm-item">工單狀態追蹤（QUEUED → DONE）</span>
-            <span class="rm-item">優先序重排</span>
-          </div>
-          <div class="rm-milestone">▸ 里程碑：工單 → 機台 → 完工 全流程追蹤</div>
+          <h4>MES 工單整合 + 排程優化</h4>
+          <div class="rm-items"><span class="rm-item key">加工中即時改排程</span><span class="rm-item">工單→托盤對應</span><span class="rm-item">甘特圖</span><span class="rm-item">急件插隊</span><span class="rm-item">全工單 ETA</span></div>
+          <div class="rm-milestone">▸ 里程碑：MAS-μCX 功能完全對標</div>
         </div>
       </div>
 
       <div class="roadmap-row">
-        <div class="rm-phase">
-          <div class="p-name">Phase 4</div>
-          <div class="p-period">Week 14–17</div>
-          <span class="rm-tag plan">計畫中</span>
-        </div>
+        <div class="rm-phase"><div class="p-name">Phase 4</div><div class="p-period">Week 14–17</div><span class="rm-tag plan">計畫中</span></div>
         <div class="rm-content">
-          <h4>稼動率 / OEE 報表</h4>
-          <div class="rm-items">
-            <span class="rm-item key">OEE 計算（真實機台資料）</span>
-            <span class="rm-item">稼動率日/週/月報表</span>
-            <span class="rm-item">主軸負載趨勢圖</span>
-            <span class="rm-item">異常事件分析</span>
-          </div>
+          <h4>OEE 稼動率報表</h4>
+          <div class="rm-items"><span class="rm-item">OEE 計算</span><span class="rm-item">稼動率日/週/月</span><span class="rm-item">主軸負載趨勢</span><span class="rm-item">Alarm 分析</span></div>
           <div class="rm-milestone">▸ 里程碑：管理層可看到 OEE 數字</div>
         </div>
       </div>
 
       <div class="roadmap-row">
-        <div class="rm-phase">
-          <div class="p-name">Phase 5</div>
-          <div class="p-period">Week 18–24</div>
-          <span class="rm-tag plan">計畫中</span>
-        </div>
+        <div class="rm-phase"><div class="p-name">Phase 5</div><div class="p-period">Week 18–24</div><span class="rm-tag plan">計畫中</span></div>
         <div class="rm-content">
-          <h4>多廠牌擴充 + 正式部署</h4>
-          <div class="rm-items">
-            <span class="rm-item">Siemens 840D Adapter</span>
-            <span class="rm-item">FANUC CNC Adapter</span>
-            <span class="rm-item">用戶權限管理</span>
-            <span class="rm-item">IPC 生產部署（單一入口）</span>
-            <span class="rm-item">操作手冊</span>
-            <span class="rm-item">正式驗收</span>
-          </div>
-          <div class="rm-milestone">▸ 里程碑：多台異廠牌機台統一監控，系統正式上線</div>
+          <h4>多廠牌擴充 + 正式部署（超越 MAS-μCX）</h4>
+          <div class="rm-items"><span class="rm-item">Siemens 840D Adapter</span><span class="rm-item">FANUC CNC Adapter</span><span class="rm-item">用戶權限管理</span><span class="rm-item">IPC 生產部署</span><span class="rm-item">操作手冊</span></div>
+          <div class="rm-milestone">▸ 里程碑：多廠牌機台統一管理，功能超越 MAS-μCX</div>
         </div>
       </div>
 
-      <!-- Timeline bar -->
-      <div style="margin-top:28px;margin-bottom:4px;">
-        <div style="font-size:11px;color:#aaa;margin-bottom:10px;font-weight:600;letter-spacing:1px;">時程概覽（從今日起，週計算）</div>
-        <div class="tl-bar-row">
-          <div class="tl-bar-label">Phase 0–1B（完成）</div>
-          <div class="tl-bar-track"><div class="tl-bar-fill tl-done" style="width:100%;">已完成</div></div>
+      <!-- Timeline -->
+      <div style="margin-top:28px;">
+        <div style="font-size:11px;color:#aaa;margin-bottom:10px;font-weight:600;letter-spacing:1px;">時程概覽</div>
+        <div class="tl-bar-row"><div class="tl-bar-label">Phase 0–1B（完成）</div><div class="tl-bar-track"><div class="tl-bar-fill tl-done" style="width:100%;">已完成</div></div></div>
+        <div class="tl-bar-row"><div class="tl-bar-label">Phase 1-C（Week 1–3）</div><div class="tl-bar-track"><div class="tl-bar-fill tl-active" style="width:12.5%;">▶ 現在</div></div></div>
+        <div class="tl-bar-row"><div class="tl-bar-label">Phase 2（Week 4–9）</div><div class="tl-bar-track"><div class="tl-bar-fill tl-p2" style="width:25%;margin-left:12.5%;">托盤 + Cell</div></div></div>
+        <div class="tl-bar-row"><div class="tl-bar-label">Phase 3（Week 10–13）</div><div class="tl-bar-track"><div class="tl-bar-fill tl-p3" style="width:16.7%;margin-left:37.5%;">MES</div></div></div>
+        <div class="tl-bar-row"><div class="tl-bar-label">Phase 4（Week 14–17）</div><div class="tl-bar-track"><div class="tl-bar-fill tl-p4" style="width:16.7%;margin-left:54.2%;">OEE</div></div></div>
+        <div class="tl-bar-row"><div class="tl-bar-label">Phase 5（Week 18–24）</div><div class="tl-bar-track"><div class="tl-bar-fill tl-p5" style="width:25%;margin-left:70.8%;">多廠牌</div></div></div>
+        <div style="font-size:11px;font-weight:600;margin-top:10px;display:flex;justify-content:space-between;">
+          <span style="color:#7c3aed;">Week 9 ▸ MAS-μCX 基礎功能達標</span>
+          <span style="color:#1a8a3c;">Week 24 ▸ 完整上線，功能超越 MAS-μCX</span>
         </div>
-        <div class="tl-bar-row">
-          <div class="tl-bar-label">Phase 1-C（Week 1–3）</div>
-          <div class="tl-bar-track"><div class="tl-bar-fill tl-active" style="width:12.5%;">▶ 現在</div></div>
-        </div>
-        <div class="tl-bar-row">
-          <div class="tl-bar-label">Phase 2（Week 4–9）</div>
-          <div class="tl-bar-track"><div class="tl-bar-fill tl-plan-a" style="width:25%;margin-left:12.5%;">機器人整合</div></div>
-        </div>
-        <div class="tl-bar-row">
-          <div class="tl-bar-label">Phase 3（Week 10–13）</div>
-          <div class="tl-bar-track"><div class="tl-bar-fill tl-plan-b" style="width:16.7%;margin-left:37.5%;">MES</div></div>
-        </div>
-        <div class="tl-bar-row">
-          <div class="tl-bar-label">Phase 4（Week 14–17）</div>
-          <div class="tl-bar-track"><div class="tl-bar-fill tl-plan-c" style="width:16.7%;margin-left:54.2%;">OEE 報表</div></div>
-        </div>
-        <div class="tl-bar-row">
-          <div class="tl-bar-label">Phase 5（Week 18–24）</div>
-          <div class="tl-bar-track"><div class="tl-bar-fill tl-plan-d" style="width:25%;margin-left:70.8%;">多廠牌+部署</div></div>
-        </div>
-        <div style="font-size:11px;color:#1a8a3c;font-weight:600;margin-top:10px;text-align:right;">預計完整上線：約 6 個月</div>
       </div>
     </div>
   </div>
 
-  <!-- Toggle Sections -->
+  <!-- Toggles -->
   <div style="margin-bottom:8px;font-size:11px;color:#aaa;font-weight:600;letter-spacing:1px;">技術參考資料（點擊展開）</div>
 
   <details class="toggle-section">
     <summary>OPC UA 開發鐵則（來源：Heidenhain 官方手冊 01/2026）</summary>
     <div class="toggle-body">
-      <p style="font-size:12px;color:#888;margin-bottom:14px;">以下規則直接來自 HEIDENHAIN OPC UA Information Model 手冊（214頁），為開發必須遵守的硬性約束。</p>
-      <div style="font-size:12px;font-weight:700;color:#E8500A;margin:10px 0 6px;text-transform:uppercase;letter-spacing:1px;">連線與安全</div>
+      <p style="font-size:12px;color:#888;margin-bottom:12px;">以下規則直接來自 HEIDENHAIN OPC UA Information Model 手冊（214頁），為開發必須遵守的硬性約束。</p>
+      <div style="font-size:12px;font-weight:700;color:#E8500A;margin:8px 0 6px;">連線與安全</div>
       <table class="rule-table">
-        <tr><td>Namespace 動態查詢</td><td>ns= 索引依控制器不同，<b>禁止硬編碼</b>，每次連線用 <code>session.getNamespaceIndex()</code> 取得。</td></tr>
+        <tr><td>Namespace 動態查詢</td><td>ns= 索引禁止硬編碼，每次連線用 <code>session.getNamespaceIndex()</code> 取得。</td></tr>
         <tr><td>初次連線策略</td><td>先用 SecurityMode=None + Username/Password 驗通，再換 Basic256Sha256 + X.509 憑證。</td></tr>
         <tr><td>憑證雙向信任</td><td>控制器端須在 TNC OPC UA Assistant 信任客戶端憑證，缺一不可。</td></tr>
         <tr><td>等 NCIsAvailable</td><td>NC 啟動後需等 Machine.State.CurrentState = NCIsAvailable 才操作。</td></tr>
       </table>
-      <div style="font-size:12px;font-weight:700;color:#E8500A;margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px;">FileSystem 程式傳輸（Chapter 9）</div>
+      <div style="font-size:12px;font-weight:700;color:#E8500A;margin:12px 0 6px;">FileSystem 程式傳輸（Chapter 9）</div>
       <table class="rule-table">
+        <tr><td>程式傳輸協議</td><td>走 OPC UA FileSystem（Chapter 9），<b>非 FTP / LSV2</b>。</td></tr>
         <tr><td>禁止遞迴瀏覽</td><td>FileSystem 龐大且動態，遞迴瀏覽嚴重影響效能，手冊明確警告。</td></tr>
-        <tr><td>NodeId 是動態的</td><td>File / Directory 的 NodeId 動態分配，<b>不可快取或硬編碼</b>，每次操作前 Browse 取得。</td></tr>
-        <tr><td>Handle 必須 Close</td><td>Open() 後無論成功或失敗都必須呼叫 Close()，否則 OpenCount 累積後續操作失敗。</td></tr>
-        <tr><td>程式傳輸協議</td><td>走 OPC UA FileSystem（Chapter 9），<b>非 FTP / LSV2</b>（後者為舊版 DNC 方式）。</td></tr>
+        <tr><td>NodeId 是動態的</td><td>File / Directory 的 NodeId 動態分配，不可快取或硬編碼，每次操作前 Browse 取得。</td></tr>
+        <tr><td>Handle 必須 Close</td><td>Open() 後無論成功或失敗都必須呼叫 Close()，否則後續操作失敗。</td></tr>
       </table>
-      <div style="font-size:12px;font-weight:700;color:#E8500A;margin:14px 0 6px;text-transform:uppercase;letter-spacing:1px;">PLC 變數（Chapter 10）</div>
+      <div style="font-size:12px;font-weight:700;color:#E8500A;margin:12px 0 6px;">PLC 變數（Chapter 10）</div>
       <table class="rule-table">
         <tr><td>需機台側設定</td><td>PLC 變數透過 CfgOpcUaPlcVar(134100) 開放，未設定則不出現在 Address Space。</td></tr>
-        <tr><td>節點位置</td><td>Machine.ManufacturerExtensions.[物件].[變數]，使用獨立 Namespace，須 Browse 確認。</td></tr>
         <tr><td>PLC 重新編譯</td><td>ManufacturerExtensions 節點全部重建，NodeId 可能改變，客戶端需重新 Browse。</td></tr>
       </table>
     </div>
@@ -512,21 +486,16 @@ pre.code .c { color: #6a9fb5; }
   <details class="toggle-section">
     <summary>IPC 安裝部署流程（10 步驟）</summary>
     <div class="toggle-body">
-      <div class="install-step"><div class="install-num">1</div><div class="install-body"><h4>安裝 Node.js + pnpm</h4><p>下載 LTS 版（v22+）後執行：</p><pre class="code">corepack enable && corepack prepare pnpm@latest --activate</pre></div></div>
+      <div class="install-step"><div class="install-num">1</div><div class="install-body"><h4>安裝 Node.js + pnpm</h4><pre class="code">corepack enable && corepack prepare pnpm@latest --activate</pre></div></div>
       <div class="install-step"><div class="install-num">2</div><div class="install-body"><h4>複製專案至 IPC</h4><pre class="code">git clone &lt;remote&gt; C:\CNC_SCADA && cd C:\CNC_SCADA && pnpm install</pre></div></div>
-      <div class="install-step"><div class="install-num">3</div><div class="install-body"><h4>設定環境變數</h4><pre class="code"><span class="c"># apps\api\.env</span>
-DATABASE_URL="file:./dev.db"
-PORT=3001
-MACHINE_MODE=PRODUCTION</pre></div></div>
+      <div class="install-step"><div class="install-num">3</div><div class="install-body"><h4>設定環境變數</h4><pre class="code">DATABASE_URL="file:./dev.db" / PORT=3001 / MACHINE_MODE=PRODUCTION</pre></div></div>
       <div class="install-step"><div class="install-num">4</div><div class="install-body"><h4>初始化資料庫</h4><pre class="code">cd apps\api && pnpm prisma migrate deploy && pnpm prisma db seed</pre></div></div>
       <div class="install-step"><div class="install-num">5</div><div class="install-body"><h4>生成 OPC UA 憑證</h4><pre class="code">pnpm exec node-opcua-pki createPKI
-pnpm exec node-opcua-pki certificate --selfSigned -o client_cert.pem
-<span class="c"># 將 client_cert.pem 複製至 TNC，在 OPC UA Assistant 信任</span></pre></div></div>
-      <div class="install-step"><div class="install-num">6</div><div class="install-body"><h4>更新機台 Endpoint</h4><pre class="code">pnpm exec prisma studio  <span class="c"># http://localhost:5555，修改 opcuaEndpoint 欄位</span></pre></div></div>
+pnpm exec node-opcua-pki certificate --selfSigned -o client_cert.pem</pre></div></div>
+      <div class="install-step"><div class="install-num">6</div><div class="install-body"><h4>更新機台 Endpoint</h4><pre class="code">pnpm exec prisma studio  <span class="c"># http://localhost:5555</span></pre></div></div>
       <div class="install-step"><div class="install-num">7</div><div class="install-body"><h4>建置前端</h4><pre class="code">pnpm --filter web build</pre></div></div>
       <div class="install-step"><div class="install-num">8</div><div class="install-body"><h4>啟動服務</h4><pre class="code">pnpm --filter api start</pre></div></div>
-      <div class="install-step"><div class="install-num">9</div><div class="install-body"><h4>設定開機自動啟動</h4><pre class="code">npm i -g pm2 && pm2 start "pnpm --filter api start" --name cnc-scada
-pm2 save && pm2 startup</pre></div></div>
+      <div class="install-step"><div class="install-num">9</div><div class="install-body"><h4>開機自動啟動</h4><pre class="code">npm i -g pm2 && pm2 start "pnpm --filter api start" --name cnc-scada && pm2 save</pre></div></div>
       <div class="install-step"><div class="install-num">10</div><div class="install-body"><h4>TNC640 Option 83 確認</h4><pre class="code">MOD → Software Options → Option 83 = Active
 MOD → Network/Remote Access → OPC UA NC Server → ON</pre></div></div>
     </div>
@@ -538,13 +507,12 @@ MOD → Network/Remote Access → OPC UA NC Server → ON</pre></div></div>
       <table class="tech-table">
         <thead><tr><th style="width:100px;">層級</th><th style="width:160px;">技術</th><th>說明</th></tr></thead>
         <tbody>
-          <tr><td><b>前端</b></td><td>React 18 + Vite</td><td>TypeScript SPA，Vite 熱更新</td></tr>
-          <tr><td><b>樣式</b></td><td>Tailwind CSS</td><td>工業風暗色主題，Quick Jet 品牌色</td></tr>
+          <tr><td><b>前端</b></td><td>React 18 + Vite</td><td>TypeScript SPA，Vite 熱更新，響應式（Phase 2 補完）</td></tr>
           <tr><td><b>後端</b></td><td>Fastify + Node.js</td><td>REST API + WebSocket，port 3001</td></tr>
-          <tr><td><b>資料庫</b></td><td>SQLite + Prisma</td><td>嵌入式 DB，IPC 單機部署</td></tr>
-          <tr><td><b>OPC UA</b></td><td>node-opcua</td><td>TNC640 / 台達 AS PLC 連線，符合 IEC 62541</td></tr>
+          <tr><td><b>資料庫</b></td><td>SQLite + Prisma</td><td>嵌入式 DB，IPC 單機部署，Phase 5 可遷移 PostgreSQL</td></tr>
+          <tr><td><b>OPC UA</b></td><td>node-opcua</td><td>TNC640 / 台達 AS PLC 連線，FileSystem 程式傳輸</td></tr>
+          <tr><td><b>機器人</b></td><td>FANUC I/O + 台達 OPC UA</td><td>FanucIoAdapter（TNC PLC 中介）+ DeltaOpcUaAdapter</td></tr>
           <tr><td><b>即時通訊</b></td><td>WebSocket</td><td>1 秒輪詢後廣播，useMachineSocket Hook</td></tr>
-          <tr><td><b>套件管理</b></td><td>pnpm workspace</td><td>Monorepo，共用型別</td></tr>
           <tr><td><b>程序管理</b></td><td>pm2</td><td>IPC 開機自動啟動、崩潰重啟</td></tr>
         </tbody>
       </table>
@@ -552,8 +520,8 @@ MOD → Network/Remote Access → OPC UA NC Server → ON</pre></div></div>
   </details>
 
   <div class="footer" style="margin-top:32px;">
-    <p>Quick Jet &nbsp;—&nbsp; CNC SCADA 自動化上位系統 &nbsp;—&nbsp; <strong>Internal Engineering Report v0.2.0</strong></p>
-    <p style="margin-top:3px;">2026-05-12 &nbsp;｜&nbsp; 競品比較資料來源：公開型錄與詢價經驗 &nbsp;｜&nbsp; 本文件由 Claude Code 協助生成</p>
+    <p>Quick Jet &nbsp;—&nbsp; CNC SCADA 自動化上位系統 &nbsp;—&nbsp; <strong>Internal Engineering Report v0.3.0</strong></p>
+    <p style="margin-top:3px;">2026-05-13 &nbsp;｜&nbsp; 對標：Makino MAS-μCX（makino.co.jp，2026-05-13 擷取）&nbsp;｜&nbsp; 本文件由 Claude Code 協助生成</p>
   </div>
 
 </div>
